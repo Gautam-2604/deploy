@@ -3,8 +3,8 @@ import {client} from "db/client"
 
 const wss = new WebSocketServer({port:8080})
 
-wss.on("connection",(socket)=>{
-    client.user.create({
+wss.on("connection",async(socket)=>{
+    await client.user.create({
         data:{
             username:Math.random.toString(),
             password:"123456"
